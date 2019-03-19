@@ -1,15 +1,23 @@
 export class Address {
-
-  // region attributes
-
+  // region Attributes
   streetNumber: number;
-  apartment: string;
   streetName: string;
   city: string;
   province: string;
+  postalCode: string;
   country: string;
+  // endregion
 
-  // region attributes
-
-
+  // region Default Methods
+  constructor(args?) {
+    if (args !== null) {
+      this.streetNumber = args.streetNumber;
+      this.streetName = args.streetName;
+      this.city = args.city;
+      this.province = args.province;
+      this.postalCode = args.postalCode;
+      this.country = args.country;
+    }
+  }
+  // endregion
 }

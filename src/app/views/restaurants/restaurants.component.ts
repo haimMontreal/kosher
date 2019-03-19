@@ -1,0 +1,35 @@
+import { Component, OnInit } from '@angular/core';
+import {Restaurant} from '../../models/restaurant';
+import {RestaurantService} from '../../models/services/restaurant.service';
+
+@Component({
+  selector: 'app-restaurants',
+  templateUrl: './restaurants.component.html',
+  styleUrls: ['./restaurants.component.scss']
+})
+export class RestaurantsComponent implements OnInit {
+  // region Values
+  rests: Restaurant[];
+
+  // endregion
+
+  // region DefaultMethods
+  // instantiates the restaurant service.
+  constructor(private restaurantService: RestaurantService) { }
+
+  ngOnInit() {
+    this.getRestaurants();
+  }
+  // endregion
+
+  // region Service Getters
+  getRestaurants(): void {
+    // subscribes to the observable of restaurants.
+    this.restaurantService.getRestaurants()
+      .subscribe(restaurants => {
+        this.rests = restaurants;
+      });
+  }
+  // endregion
+
+}

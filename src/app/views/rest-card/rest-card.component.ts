@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Restaurant} from '../../models/Restaurant';
+import {Restaurant} from '../../models/restaurant';
 
 @Component({
   selector: 'app-rest-card',
@@ -9,16 +9,10 @@ import {Restaurant} from '../../models/Restaurant';
 export class RestCardComponent implements OnInit {
 
   @Input() restaurant: Restaurant;
-now = new Date();
+
   constructor() {
 
-this.restaurant = new Restaurant();
-
   }
-
-  ngOnInit() {
-
-
-  }
+  ngOnInit() {}
 
 }

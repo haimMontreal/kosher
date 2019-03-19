@@ -1,17 +1,22 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>{{restaurant.name | uppercase}}</mat-card-title>
+    <mat-card-title> {{restaurant.name | uppercase}}</mat-card-title>
     <mat-card-subtitle>
-      T: <a href="tel:{{restaurant.phone}}">{{restaurant.phone}}</a>&nbsp;
-
-     <span *ngIf="restaurant.website"> W:<a href="{{restaurant.website}}" target="_blank"> {{restaurant.name}}</a>
-    </span>
+      <span *ngIf="restaurant.phone"> T: <a href="tel:{{restaurant.name}}">{{restaurant.phone}}</a></span>
+      <span *ngIf="restaurant.website">W:<a href="{{restaurant.website}}" target="blank">{{restaurant.name}}</a></span>
     </mat-card-subtitle>
   </mat-card-header>
-  <mat-card-content>
-    <p class="par">
-     Rating:  {{restaurant.rating}}
-     Price Range: {{restaurant.priceRange}}
+  <mat-card-content><br>
+    <p *ngIf="restaurant.location">Address: <br>
+      <span *ngIf="restaurant.location.streetNumber">{{restaurant.location.streetNumber}}</span>
+      <span *ngIf="restaurant.location.streetName">{{restaurant.location.streetName}}</span>
+      <span *ngIf="restaurant.location.city">{{restaurant.location.city}}</span>
+      <span *ngIf="restaurant.location.province">{{restaurant.location.province}}</span>
+      <span *ngIf="restaurant.location.postalCode">{{restaurant.location.postalCode}}</span>
+      <span *ngIf="restaurant.location.country">{{restaurant.location.country}}</span>
+      <br>
+      Rating: {{restaurant.rating}} <br>
+      Price Range: {{restaurant.avgMealPrice}}
     </p>
   </mat-card-content>
 </mat-card>
