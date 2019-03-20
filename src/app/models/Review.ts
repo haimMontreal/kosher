@@ -11,12 +11,13 @@ export class Review {
 
   // region Default Methods
   constructor(args?) {
-
+    if(args !==null) {
       this.author = args.author;
       this.rating = args.rating;
       this.title = args.title;
       this.body = args.body;
       this.date = args.date;
+    }
 
   }
   // endregion
